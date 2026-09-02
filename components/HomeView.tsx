@@ -1,7 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import PageBodyBackground from '@/components/PageBodyBackground';
 import PostCard from '@/components/PostCard';
 import type { PostMeta } from '@/lib/content';
@@ -16,8 +16,17 @@ export default function HomeView({
   siteTitle: string;
   backgroundHome?: string | null;
 }) {
-  const searchParams = useSearchParams();
-  const q = searchParams.get('q')?.trim() ?? '';
+  const [q, setQ] = useState('');
+
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      setQ(params.get('q')?.trim() ?? '');
+    } catch {
+      setQ('');
+    }
+  }, []);
+
   const keyword = q.toLowerCase();
 
   const filtered = keyword
