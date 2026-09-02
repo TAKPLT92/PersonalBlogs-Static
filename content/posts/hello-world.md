@@ -6,7 +6,7 @@ category: "生活随笔"
 tags:
   - "日记"
 excerpt: "第一篇博客，记录这个博客的诞生。"
-cover_image: "/uploads/1788363182966-ovc0db.jpg"
+cover_image: "/uploads/1788369635040-epdk4l.jpg"
 ---
 
 # 你好，世界

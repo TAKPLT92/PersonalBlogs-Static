@@ -4,6 +4,7 @@ import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
+import { asset } from '@/lib/asset';
 
 export default function MarkdownContent({ content }: { content: string }) {
   const [lightbox, setLightbox] = useState<string | null>(null);
@@ -35,7 +36,7 @@ export default function MarkdownContent({ content }: { content: string }) {
               return (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  src={src ?? ''}
+                  src={asset(src ?? '')}
                   alt={alt ?? ''}
                   loading="lazy"
                   className="my-4 cursor-zoom-in rounded-xl"
@@ -58,7 +59,7 @@ export default function MarkdownContent({ content }: { content: string }) {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={lightbox}
+            src={asset(lightbox)}
             alt="图片预览"
             className="max-h-full max-w-full rounded-xl object-contain shadow-2xl"
           />

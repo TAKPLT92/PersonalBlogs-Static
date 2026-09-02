@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useRef, type MouseEvent } from 'react';
 import type { PostMeta } from '@/lib/content';
 import { formatDate } from '@/lib/format';
+import { asset } from '@/lib/asset';
 
 export default function PostCard({ post }: { post: PostMeta }) {
   const router = useRouter();
@@ -36,7 +37,7 @@ export default function PostCard({ post }: { post: PostMeta }) {
       {post.cover_image ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={post.cover_image}
+          src={asset(post.cover_image)}
           alt={post.title}
           loading="lazy"
           className="mb-4 h-40 w-full rounded-xl object-cover"
