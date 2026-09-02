@@ -6,10 +6,22 @@
     "created_at": "2026-09-01T14:12:27.329Z"
   },
   {
+    "id": 7,
+    "name": "Next.js",
+    "slug": "next-js",
+    "created_at": "2026-09-02T18:25:17.611Z"
+  },
+  {
     "id": 4,
     "name": "Tailwind CSS",
     "slug": "tailwind",
     "created_at": "2026-09-01T14:12:27.329Z"
+  },
+  {
+    "id": 8,
+    "name": "Tailwind CSS",
+    "slug": "tailwind-css",
+    "created_at": "2026-09-02T18:25:17.612Z"
   },
   {
     "id": 3,
