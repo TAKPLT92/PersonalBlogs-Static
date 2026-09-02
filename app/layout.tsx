@@ -4,7 +4,7 @@ import './globals.css';
 import SakuraCanvas from '@/components/SakuraCanvas';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
-import { getSiteTitle } from '@/lib/content';
+import { getPosts, getSiteTitle } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: {
@@ -16,12 +16,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const siteTitle = getSiteTitle();
+  const posts = getPosts();
 
   return (
     <html lang="zh-CN">
       <body className="flex min-h-screen flex-col">
         <SakuraCanvas />
-        <SiteHeader siteTitle={siteTitle} />
+        <SiteHeader siteTitle={siteTitle} posts={posts} />
         <div className="relative z-10 flex-1">{children}</div>
         <SiteFooter />
       </body>

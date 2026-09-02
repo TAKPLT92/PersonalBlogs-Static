@@ -7,13 +7,8 @@ export default function EntryGate() {
   const router = useRouter();
 
   useEffect(() => {
-    let entered = false;
-    try {
-      entered = sessionStorage.getItem('blog_entered') === '1';
-    } catch {
-      entered = false;
-    }
-    router.replace(entered ? '/home' : '/about');
+    // 每次进入网站都先显示“关于/欢迎”页
+    router.replace('/about');
   }, [router]);
 
   return null;

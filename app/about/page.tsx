@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import EnterHomeButton from '@/components/EnterHomeButton';
-import { getSiteTitle } from '@/lib/content';
+import { getSettings, getSiteTitle } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: '关于我',
@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   const siteTitle = getSiteTitle();
+  const aboutContent = getSettings().about_content ?? '';
 
   return (
     <main className="mx-auto min-h-screen max-w-3xl px-6 py-14">
@@ -18,10 +19,23 @@ export default function AboutPage() {
       </header>
 
       <div className="rounded-2xl border border-black/5 bg-paper p-8 shadow-card">
-        <p className="leading-relaxed text-ink/75">
-          这个博客是我的个人空间，用来记录日常思考、学习笔记、技术作品，以及收藏常用的资源和工具。
-        </p>
-        <p className="mt-4 leading-relaxed text-ink/75">感谢你的到访，愿每一段文字都有温度。</p>
+        {aboutContent ? (
+          <div className="space-y-4 leading-relaxed text-ink/75">
+            {aboutContent
+              .split(/\n+/)
+              .filter(Boolean)
+              .map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+          </div>
+        ) : (
+          <>
+            <p className="leading-relaxed text-ink/75">
+              这个博客是我的个人空间，用来记录日常思考、学习笔记、技术作品。
+            </p>
+            <p className="mt-4 leading-relaxed text-ink/75">感谢你的到访，愿每一段文字都有温度。</p>
+          </>
+        )}
       </div>
 
       <div className="mt-8 rounded-2xl border border-accent/20 bg-accent/5 p-6 text-center">

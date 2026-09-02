@@ -1,3 +1,5 @@
+'use client';
+
 import { asset } from '@/lib/asset';
 
 export default function PageBodyBackground({
