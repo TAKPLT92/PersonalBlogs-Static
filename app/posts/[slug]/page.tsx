@@ -11,6 +11,8 @@ import {
   getTags,
 } from '@/lib/content';
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getPosts().map((post) => ({ slug: post.slug }));
 }

@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import PostCard from '@/components/PostCard';
 import { getPostsByTag, getTags } from '@/lib/content';
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getTags().map((tag) => ({ slug: tag.slug }));
 }
