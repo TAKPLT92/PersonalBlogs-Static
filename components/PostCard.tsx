@@ -39,7 +39,8 @@ export default function PostCard({ post }: { post: PostMeta }) {
         <img
           src={asset(post.cover_image)}
           alt={post.title}
-          loading="lazy"
+          loading="eager"
+          decoding="async"
           className="mb-4 h-40 w-full rounded-xl object-cover"
         />
       ) : (

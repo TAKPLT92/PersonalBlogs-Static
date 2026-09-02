@@ -14,6 +14,11 @@ const navItems = [
 
 export default function SiteHeader({ siteTitle }: { siteTitle: string }) {
   const pathname = usePathname();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const normalized =
+    pathname && pathname.startsWith(basePath)
+      ? pathname.slice(basePath.length) || '/'
+      : pathname;
 
   return (
     <header className="sticky top-0 z-40 border-b border-black/5 bg-cream/80 backdrop-blur">
@@ -24,8 +29,8 @@ export default function SiteHeader({ siteTitle }: { siteTitle: string }) {
         <nav className="flex flex-wrap items-center gap-1">
           {navItems.map((item) => {
             const active =
-              pathname === item.href ||
-              (item.href !== '/home' && pathname.startsWith(item.href));
+              normalized === item.href ||
+              (item.href !== '/home' && normalized?.startsWith(item.href));
             return (
               <Link
                 key={item.href}

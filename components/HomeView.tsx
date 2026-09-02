@@ -1,12 +1,15 @@
+import PageBodyBackground from '@/components/PageBodyBackground';
 import PostCard from '@/components/PostCard';
-import { getPosts, getSiteTitle } from '@/lib/content';
+import { getPosts, getSettings, getSiteTitle } from '@/lib/content';
 
 export default function HomeView() {
   const posts = getPosts();
   const siteTitle = getSiteTitle();
+  const settings = getSettings();
 
   return (
     <main className="relative z-10 mx-auto min-h-screen max-w-5xl px-6 py-14">
+      <PageBodyBackground imageUrl={settings.background_home} />
       <header className="mb-12 text-center">
         <h1 className="text-4xl font-semibold tracking-wide text-ink sm:text-5xl">
           {siteTitle}
