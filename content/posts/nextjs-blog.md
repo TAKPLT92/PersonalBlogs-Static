@@ -8,7 +8,7 @@ tags:
   - "Tailwind CSS"
   - "TypeScript"
 excerpt: "技术笔记：从零搭建个人博客的技术选型与实现。"
-cover_image: "/uploads/1788373504225-kf92jr.jpg"
+cover_image: "/uploads/1788374561112-9pfknu.jpg"
 ---
 
 # 使用 Next.js 搭建个人博客

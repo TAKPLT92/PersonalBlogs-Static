@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import PageBodyBackground from '@/components/PageBodyBackground';
 import PostCard from '@/components/PostCard';
 import type { PostMeta } from '@/lib/content';
+import { asset } from '@/lib/asset';
 
 export default function HomeView({
   posts,
@@ -32,6 +33,9 @@ export default function HomeView({
   return (
     <main className="relative z-10 mx-auto min-h-screen max-w-5xl px-6 py-14">
       <PageBodyBackground imageUrl={backgroundHome} />
+      {filtered[0]?.cover_image && (
+        <link rel="preload" as="image" href={asset(filtered[0].cover_image)} />
+      )}
 
       {q && (
         <div className="mb-6">

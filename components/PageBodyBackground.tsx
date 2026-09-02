@@ -12,13 +12,16 @@ export default function PageBodyBackground({
   const url = asset(imageUrl);
 
   return (
-    <style>{`
-      body {
-        background-image: url("${url}");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-      }
-    `}</style>
+    <>
+      <link rel="preload" as="image" href={url} />
+      <style>{`
+        body {
+          background-image: url("${url}");
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+        }
+      `}</style>
+    </>
   );
 }
