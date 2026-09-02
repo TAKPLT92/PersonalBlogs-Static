@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #faf6f0;
+  --foreground: #3d3a36;
+  --accent: #c48b6f;
+  --accent-soft: #e8c4b4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft YaHei',
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: rgba(200, 139, 111, 0.25);
+}
+
+a,
+button {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* Markdown */
+.markdown-body {
+  line-height: 1.85;
+  font-size: 1.0625rem;
+  color: var(--foreground);
+  overflow-wrap: break-word;
+}
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+.markdown-body h1 { font-size: 1.6em; }
+.markdown-body h2 { font-size: 1.35em; border-bottom: 1px solid rgba(0,0,0,0.08); padding-bottom: 0.2em; }
+.markdown-body h3 { font-size: 1.2em; }
+.markdown-body p { margin: 0.8em 0; }
+.markdown-body ul, .markdown-body ol { padding-left: 1.6em; margin: 0.8em 0; }
+.markdown-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.4em 1em;
+  margin: 1em 0;
+  background: rgba(200,139,111,0.08);
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: rgba(61,58,54,0.75);
+}
+.markdown-body code {
+  background: rgba(0,0,0,0.06);
+  border-radius: 0.3em;
+  padding: 0.15em 0.4em;
+  font-size: 0.9em;
+}
+.markdown-body pre {
+  background: #f6f4f0;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 0.6rem;
+  padding: 0.9em 1.1em;
+  overflow-x: auto;
+}
+.markdown-body pre code { background: transparent; padding: 0; }
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.6rem;
+  margin: 1em 0;
+}
+.markdown-body table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+.markdown-body th, .markdown-body td { border: 1px solid rgba(0,0,0,0.1); padding: 0.5em 0.8em; }
+.markdown-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Animations */
+@keyframes card-fold {
+  0% { transform: perspective(1000px) rotateY(0deg); opacity: 1; }
+  100% { transform: perspective(1000px) rotateY(-80deg); opacity: 0; }
+}
+.card-fold {
+  animation: card-fold 0.28s ease-in forwards;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+@keyframes book-open {
+  0% { transform: perspective(1200px) rotateY(-14deg); opacity: 0.4; }
+  100% { transform: perspective(1200px) rotateY(0deg); opacity: 1; }
+}
+.book-open {
+  animation: book-open 0.5s ease-out both;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-fold,
+  .book-open {
+    animation: none !important;
+  }
+}
