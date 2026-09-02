@@ -1,0 +1,26 @@
+[
+  {
+    "title": "你好，世界",
+    "slug": "hello-world",
+    "date": "2026-09-01T14:12:27.329Z",
+    "category": "生活随笔",
+    "tags": [
+      "日记"
+    ],
+    "excerpt": "第一篇博客，记录这个博客的诞生。",
+    "cover_image": "/uploads/1788363182966-ovc0db.jpg"
+  },
+  {
+    "title": "使用 Next.js 搭建个人博客",
+    "slug": "nextjs-blog",
+    "date": "2026-09-01T14:12:27.329Z",
+    "category": "技术笔记",
+    "tags": [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "excerpt": "技术笔记：从零搭建个人博客的技术选型与实现。",
+    "cover_image": null
+  }
+]
