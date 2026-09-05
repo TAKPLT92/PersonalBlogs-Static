@@ -41,7 +41,7 @@ export default function TimelinePage() {
                     <span className="absolute -left-[31px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-accent bg-paper" />
                     <time className="block text-sm text-ink/40">{formatDate(post.date)}</time>
                     <Link
-                      href={`/posts/${post.slug}`}
+                      href={`/posts/${encodeURIComponent(post.slug)}`}
                       className="mt-1 block text-lg font-medium text-ink hover:text-accent"
                     >
                       {post.title}

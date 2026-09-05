@@ -24,13 +24,16 @@ export default function PostCard({ post }: { post: PostMeta }) {
     }
     event.preventDefault();
     linkRef.current?.classList.add('card-fold');
-    setTimeout(() => router.push(`/posts/${post.slug}`), 280);
+    setTimeout(
+      () => router.push(`/posts/${encodeURIComponent(post.slug)}`),
+      280,
+    );
   };
 
   return (
     <Link
       ref={linkRef}
-      href={`/posts/${post.slug}`}
+      href={`/posts/${encodeURIComponent(post.slug)}`}
       onClick={handleClick}
       className="group block rounded-2xl border border-black/5 bg-paper p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-cardHover"
     >

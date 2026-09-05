@@ -77,7 +77,7 @@ export default function SearchBar({ posts }: { posts: PostMeta[] }) {
                     onClick={() => {
                       setOpen(false);
                       setQuery('');
-                      router.push(`/posts/${post.slug}`);
+                      router.push(`/posts/${encodeURIComponent(post.slug)}`);
                     }}
                     className="block w-full px-4 py-2.5 text-left hover:bg-accent/5"
                   >
